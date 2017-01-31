@@ -36,7 +36,7 @@ public class ListHolderActivity extends AppCompatActivity {
         for (int i = 0; i < 100; i++) {
             User user = new User();
             user.id = i + 1;
-            user.name = "홍길동" + i + 1;
+            user.name = "홍길동" + (i + 1);
             user.age = (random.nextInt(80)) + 1;
             datas.add(user);
         }
@@ -69,18 +69,33 @@ public class ListHolderActivity extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            if(convertView == null)
+            Holder holder;
+            if(convertView == null) {
                 convertView = inflater.inflate(R.layout.list_holder_item, null);
 
-            TextView tv_id = (TextView) convertView.findViewById(R.id.tv_id);
-            TextView tv_name = (TextView) convertView.findViewById(R.id.tv_name);
-            TextView tv_age = (TextView) convertView.findViewById(R.id.tv_age);
+                holder = new Holder();
 
-            tv_id.setText(datas.get(position).id + "");
-            tv_name.setText(datas.get(position).name);
-            tv_age.setText(datas.get(position).age + "");
+                holder.tv_id = (TextView) convertView.findViewById(R.id.tv_id);
+                holder.tv_name = (TextView) convertView.findViewById(R.id.tv_name);
+                holder.tv_age = (TextView) convertView.findViewById(R.id.tv_age);
+
+                convertView.setTag(holder);
+            } else {
+                holder = (Holder) convertView.getTag();
+            }
+
+
+            holder.tv_id.setText(datas.get(position).id + "");
+            holder.tv_name.setText(datas.get(position).name);
+            holder.tv_age.setText(datas.get(position).age + "");
 
             return convertView;
         }
+    }
+
+    class Holder {
+        public TextView tv_id;
+        public TextView tv_name;
+        public TextView tv_age;
     }
 }
