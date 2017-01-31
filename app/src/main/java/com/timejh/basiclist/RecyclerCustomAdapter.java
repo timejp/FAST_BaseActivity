@@ -39,7 +39,7 @@ public class RecyclerCustomAdapter extends RecyclerView.Adapter<RecyclerCustomAd
 
     @Override
     public int getItemCount() {
-        return 0;
+        return datas.size();
     }
 
     // Recycle View 에서 사용하는 뷰 홀더

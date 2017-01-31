@@ -2,6 +2,7 @@ package com.timejh.basiclist;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -26,6 +27,6 @@ public class RecyclerActivity extends AppCompatActivity {
         // 3. Recycler View Adapter 세팅하기
         recyclerView.setAdapter(recyclerCustomAdapter);
         // 4. Recycler View 메니져 등록하기... (뷰의 모양 결정 : 그리드, 리스트, 비대칭 뷰)
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2, LinearLayoutManager.HORIZONTAL, false));
     }
 }
