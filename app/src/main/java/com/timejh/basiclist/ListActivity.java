@@ -1,5 +1,6 @@
 package com.timejh.basiclist;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,7 +19,16 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
         listView = (ListView) findViewById(R.id.listview);
-        CustomAdapter customAdapter = new CustomAdapter(this, arrays);
+        final CustomAdapter customAdapter = new CustomAdapter(this, arrays);
         listView.setAdapter(customAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(ListActivity.this, DetailActivity.class);
+                intent.putExtra("textNum", position + 1 + "");
+                intent.putExtra("textDay", (String)customAdapter.getItem(position));
+                startActivity(intent);
+            }
+        });
     }
 }
