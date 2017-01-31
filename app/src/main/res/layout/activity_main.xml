@@ -36,4 +36,14 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/br_recyclerActivity" />
+
+    <Button
+        android:text="RecyclerCardActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:id="@+id/bt_recyclerCardActivity"
+        android:layout_below="@+id/br_recyclerActivity"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

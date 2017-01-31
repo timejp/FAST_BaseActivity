@@ -11,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
     private Button bt_listActivity;
     private Button bt_listHolderActivity;
     private Button bt_recyclerActivity;
+    private Button bt_recyclerCardActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         bt_listActivity = (Button) findViewById(R.id.bt_listActivity);
         bt_listHolderActivity = (Button) findViewById(R.id.bt_listHolderActivity);
         bt_recyclerActivity = (Button) findViewById(R.id.br_recyclerActivity);
+        bt_recyclerCardActivity = (Button) findViewById(R.id.bt_recyclerCardActivity);
 
         bt_listActivity.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +43,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, RecyclerActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        bt_recyclerCardActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, RecyclerCardActivity.class);
                 startActivity(intent);
             }
         });
